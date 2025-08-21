@@ -62,22 +62,23 @@ git clone https://github.com/nouamanean/pancreas-unet3d.git
 cd pancreas-unet3d
 
 📂 Project Structure
-**config/**                  # configuration files (YAML)
-**data/processed/patches/**  # preprocessed patches and metadata
-**results/checkpoints/**     # model checkpoints per epoch
-**results/best_model.pth**   # best model (lowest validation loss)
-**scripts/**
-  ├── **preprocess.py**      # run preprocessing and patch extraction
-  └── split.py           # split data into train/val/test
+config/ # configuration files (YAML)
+data/processed/patches/ # preprocessed patches and metadata
+results/
+├── checkpoints/ # model checkpoints per epoch
+└── best_model.pth # best model (lowest validation loss)
+scripts/
+├── preprocess.py # run preprocessing and patch extraction
+└── split.py # split data into train/val/test
 src/
-  ├── data/
-  │   ├── preprocessing.py    # MRI preprocessing and patch extraction
-  │   └── pancreas_dataset.py # Dataset loader for patches
-  ├── models/
-  │   └── unet3D.py           # 3D U-Net implementation
-  └── training/
-      ├── train_.py           # Training loop
-      └── evaluate.py         # Model evaluation
-main.py                  # Pipeline runner
+├── data/
+│ ├── preprocessing.py # MRI preprocessing and patch extraction
+│ └── pancreas_dataset.py # Dataset loader for patches
+├── models/
+│ └── unet3D.py # 3D U-Net implementation
+└── training/
+├── train_.py # Training loop
+└── evaluate.py # Model evaluation
+main.py # Pipeline runner
 
 
