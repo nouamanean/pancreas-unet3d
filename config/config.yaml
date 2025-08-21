@@ -1,0 +1,26 @@
+preprocessing:
+    input_dir: data/raw/images
+    label_dir: data/raw/labels
+    resample_dir: data/processed
+    resample_t2: resample_T2
+    resample_label: resample_label
+    output_patch: patches
+    output_patch_t2: irm_t2
+    output_patch_lab: labels
+    target_shape: [128, 128, 64]
+    new_spacing: [0.5, 0.5, 0.5]
+dataset:
+  patch_dir_img: data/processed/patches/irm_t2
+  patch_dir_label: data/processed/patches/labels
+  train_metadata: data/processed/patches/train.csv
+  val_metadata: data/processed/patches/val.csv
+  batch_size: 1
+  num_workers: 4
+  learning_rate: 0.0001      
+  num_epochs: 5   
+
+evaluation:
+  test_csv: data/processed/patches/test.csv
+  img_dir: data/processed/patches/irm_t2
+  label_dir: data/processed/patches/labels
+  model_path: results/models/unet3d_trained.pth
