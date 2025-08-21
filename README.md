@@ -1,99 +1,89 @@
-# Pancreas Segmentation with 3D U-Net
+<h1 align="center">PANCREAS-UNET3D</h1>
 
-This project implements a full deep learning pipeline for pancreas tumor segmentation using **3D U-Net**.  
-The workflow includes preprocessing, patch extraction, dataset splitting, model training, and evaluation.
+<p align="center">
+  <em>Transforming Medical Imaging with Precision and Power</em>
+</p>
 
----
+<p align="center">
+  <img src="https://img.shields.io/badge/last%20commit-today-brightgreen" />
+  <img src="https://img.shields.io/badge/python-100%25-blue" />
+  <img src="https://img.shields.io/badge/languages-1-lightgrey" />
+</p>
 
-## 📂 Project structure
-
-config/ # configuration files (YAML)
-data/processed/patches/ # preprocessed patches and metadata
-results/checkpoints/ # model checkpoints per epoch
-results/best_model.pth # best model (lowest validation loss)
-scripts/preprocess.py # run preprocessing and patch extraction
-scripts/split.py # split data into train/val/test
-src/data/preprocessing.py # MRI preprocessing and patch extraction
-src/data/pancreas_dataset.py # Dataset loader for patches
-src/models/unet3D.py # 3D U-Net implementation
-src/training/train_.py # Training loop
-src/training/evaluate.py # Model evaluation
-main.py # Pipeline runner
-
+<p align="center">
+  Built with the tools and technologies:<br/>
+  <img src="https://img.shields.io/badge/Markdown-black?logo=markdown" />
+  <img src="https://img.shields.io/badge/Python-blue?logo=python" />
+  <img src="https://img.shields.io/badge/YAML-red?logo=yaml" />
+</p>
 
 ---
 
+## 📑 Table of Contents
+- [Overview](#overview)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Testing](#testing)
+- [Project Structure](#project-structure)
+- [License](#license)
 
-🚀 Usage
-1. Preprocessing and Patch Extraction
+---
 
+## 📘 Overview
+
+**pancreas-unet3d** is a comprehensive toolkit designed to streamline **3D medical image segmentation** workflows, from data preprocessing to model evaluation.  
+It manages the entire pipeline for pancreas tumor segmentation using a **3D U-Net architecture**, enabling efficient development and deployment of accurate models.
+
+### Why pancreas-unet3d?
+
+This project empowers developers to build, train, and evaluate precise pancreas segmentation models with an integrated, end-to-end pipeline.  
+The core features include:
+
+- 🚀 **Pipeline Automation**: Facilitates preprocessing, patch extraction, dataset splitting, training, and evaluation, reducing manual effort.
+- 🧠 **Model Architecture**: Implements a 3D U-Net optimized for volumetric data, capturing complex 3D patterns.
+- 📊 **Interactive Visualization**: Enables side-by-side inspection of MRI patches, ground truth masks, and predictions for qualitative analysis.
+- ⚙️ **Modular & Configurable**: Promotes reproducibility with flexible configuration files and utility functions.
+- 🔗 **End-to-End Integration**: Seamlessly connects data handling, model training, and evaluation for efficient development.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+This project requires:
+- **Programming Language**: Python 3.9+
+- **Package Manager**: Conda (recommended) or pip
+
+### Installation
+
+1. **Clone the repository**
+git clone https://github.com/yourusername/pancreas-unet3d.git
+cd pancreas-unet3d
+
+*# ==== Usage: Preprocessing and Patch Extraction ====
+
+# from the project root
+set -e
+
+# (optional) create and activate a virtual environment
+python -m venv .venv
+# Linux/Mac:
+source .venv/bin/activate
+# Windows (PowerShell):
+# .\.venv\Scripts\Activate.ps1
+
+# install dependencies
+pip install -r requirements.txt
+
+# run preprocessing (resampling, normalization, etc.) + patch extraction
 python scripts/preprocess.py
-This will resample MRI scans and extract 3D patches.
 
-2. Split Train/Val/Test
+# verify outputs
+echo "Generated files:"
+ls -lah data/processed/patches/ || true
 
-Generates:
+echo "Preview of metadata:"
+head -n 20 data/processed/patches/metadata.csv || true
 
-train.csv
-val.csv
-test.csv
-
-3. Training
-python main.py
-
-This runs the pipeline and trains the 3D U-Net.
-
-Models are saved in:
-results/checkpoints/
-results/best_model.pth
-
-4. Evaluation
-python src/training/evaluate.py
-
-Computes the average Dice score on the test set.
-
-📊 Outputs
-
-Training and validation losses per epoch
-
-Checkpoints saved every epoch
-
-Best model automatically saved when validation improves
-
-Evaluation Dice score on test dataset
-
-🛠️ Requirements
-
-Python 3.9+
-PyTorch
-SimpleITK
-scikit-learn
-pandas
-tqdm
-pyyaml
-
-✨ Features
-
-Full 3D U-Net implementation
-
-Medical image preprocessing with SimpleITK
-
-Patch extraction with tumor/background balancing
-
-Train/validation/test split
-
-Training with checkpointing and best model saving
-
-Evaluation with Dice score
-
-📌Notes
-
-Input MRI scans must be in .nii.gz format
-
-Run preprocessing before training
-
-Adjust batch_size, learning_rate, and num_epochs in config.yaml depending on hardware
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
