@@ -58,16 +58,16 @@ This project requires:
 
 ### Installation
  **Clone the repository**
-git clone https://github.com/yourusername/pancreas-unet3d.git
+git clone https://github.com/nouamanean/pancreas-unet3d.git
 cd pancreas-unet3d
 
 📂 Project Structure
-config/                  # configuration files (YAML)
-data/processed/patches/  # preprocessed patches and metadata
-results/checkpoints/     # model checkpoints per epoch
-results/best_model.pth   # best model (lowest validation loss)
-scripts/
-  ├── preprocess.py      # run preprocessing and patch extraction
+**config/**                  # configuration files (YAML)
+**data/processed/patches/**  # preprocessed patches and metadata
+**results/checkpoints/**     # model checkpoints per epoch
+**results/best_model.pth**   # best model (lowest validation loss)
+**scripts/**
+  ├── **preprocess.py**      # run preprocessing and patch extraction
   └── split.py           # split data into train/val/test
 src/
   ├── data/
