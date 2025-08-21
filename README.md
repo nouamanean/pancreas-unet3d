@@ -57,33 +57,27 @@ This project requires:
 - **Package Manager**: Conda (recommended) or pip
 
 ### Installation
-
-1. **Clone the repository**
+ **Clone the repository**
 git clone https://github.com/yourusername/pancreas-unet3d.git
 cd pancreas-unet3d
 
-*# ==== Usage: Preprocessing and Patch Extraction ====
+📂 Project Structure
+config/                  # configuration files (YAML)
+data/processed/patches/  # preprocessed patches and metadata
+results/checkpoints/     # model checkpoints per epoch
+results/best_model.pth   # best model (lowest validation loss)
+scripts/
+  ├── preprocess.py      # run preprocessing and patch extraction
+  └── split.py           # split data into train/val/test
+src/
+  ├── data/
+  │   ├── preprocessing.py    # MRI preprocessing and patch extraction
+  │   └── pancreas_dataset.py # Dataset loader for patches
+  ├── models/
+  │   └── unet3D.py           # 3D U-Net implementation
+  └── training/
+      ├── train_.py           # Training loop
+      └── evaluate.py         # Model evaluation
+main.py                  # Pipeline runner
 
-# from the project root
-set -e
-
-# (optional) create and activate a virtual environment
-python -m venv .venv
-# Linux/Mac:
-source .venv/bin/activate
-# Windows (PowerShell):
-# .\.venv\Scripts\Activate.ps1
-
-# install dependencies
-pip install -r requirements.txt
-
-# run preprocessing (resampling, normalization, etc.) + patch extraction
-python scripts/preprocess.py
-
-# verify outputs
-echo "Generated files:"
-ls -lah data/processed/patches/ || true
-
-echo "Preview of metadata:"
-head -n 20 data/processed/patches/metadata.csv || true
 
