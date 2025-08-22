@@ -33,21 +33,29 @@
 
 ## 📘 Overview
 
-**pancreas-unet3d** is a comprehensive toolkit designed to streamline **3D medical image segmentation** workflows, from data preprocessing to model evaluation.  
-It manages the entire pipeline for pancreas tumor segmentation using a **3D U-Net architecture**, enabling efficient development and deployment of accurate models.
+**unet3d-medical** is a comprehensive toolkit designed to streamline **3D medical image segmentation** workflows,  
+from preprocessing to training and evaluation — all using a customizable **3D U-Net architecture**.
 
-### Why pancreas-unet3d?
-
-This project empowers developers to build, train, and evaluate precise pancreas segmentation models with an integrated, end-to-end pipeline.  
-The core features include:
-
-- 🚀 **Pipeline Automation**: Facilitates preprocessing, patch extraction, dataset splitting, training, and evaluation, reducing manual effort.
-- 🧠 **Model Architecture**: Implements a 3D U-Net optimized for volumetric data, capturing complex 3D patterns.
-- 📊 **Interactive Visualization**: Enables side-by-side inspection of MRI patches, ground truth masks, and predictions for qualitative analysis.
-- ⚙️ **Modular & Configurable**: Promotes reproducibility with flexible configuration files and utility functions.
-- 🔗 **End-to-End Integration**: Seamlessly connects data handling, model training, and evaluation for efficient development.
+It provides a complete pipeline applicable to **multiple organs** (brain, liver, lungs, pancreas, etc.)  
+and imaging modalities such as **MRI** and **CT scans**.
 
 ---
+
+### Why use `unet3d-medical`?
+
+This project enables researchers and developers to preprocess, train, and evaluate deep learning models  
+for segmentation tasks using an **end-to-end modular architecture**.
+
+Key features include:
+
+- 🚀 **Pipeline Automation**: Handles resampling, patch extraction, dataset splitting, training, and evaluation.
+- 🧠 **Model Architecture**: 3D U-Net with dropout, batch norm, and skip connections for volumetric data.
+- 🖼️ **Interactive Visualization**: Easily inspect MRI patches, masks, and predictions during experimentation.
+- 🧩 **Modular & Configurable**: Fully customizable via YAML config files and extensible modules.
+- 🔁 **End-to-End Integration**: From raw NIfTI scans to trained model checkpoints and evaluation reports.
+
+> The pipeline is organ-agnostic. Simply replace the dataset in the config and you're ready for another segmentation task.
+
 
 ## 🚀 Getting Started
 
